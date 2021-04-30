@@ -3,6 +3,10 @@ import Head from 'next/head';
 import { Stripe } from 'stripe';
 import { loadStripe } from '@stripe/stripe-js';
 
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
+);
+
 interface Price extends Stripe.Price {
   product: Stripe.Product;
 }
@@ -10,10 +14,6 @@ interface Price extends Stripe.Price {
 interface Props {
   price: Price;
 }
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-);
 
 const Home: NextPage<Props> = ({ price }) => {
   const initiateCheckout = async () => {
