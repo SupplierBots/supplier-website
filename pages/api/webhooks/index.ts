@@ -19,6 +19,10 @@ const cors = Cors({
   allowMethods: ['POST', 'HEAD'],
 });
 
+interface LicenseGeneratorResponse {
+  success: boolean;
+  license: { key: string; assigned: boolean };
+}
 const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -42,17 +46,64 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  if (event.type === 'payment_intent.succeeded') {
-    const paymentIntent = event.data.object as Stripe.PaymentIntent;
-    if (paymentIntent.customer) {
-      const { email } = (await stripe.customers.retrieve(
-        paymentIntent.customer as string,
-      )) as Stripe.Customer;
-      console.log(`Customer email: ${email}`);
-    }
+  if (event.type !== 'payment_intent.succeeded') {
+    res.status(500).send(`Unexpected event type ${event.type}`);
+    return;
   }
 
-  res.json({ received: true });
+  const paymentIntent = event.data.object as Stripe.PaymentIntent;
+
+  if (!paymentIntent.customer) {
+    res.status(500).send('Missing customer ID');
+    return;
+  }
+
+  const { email } = (await stripe.customers.retrieve(
+    paymentIntent.customer as string,
+  )) as Stripe.Customer;
+
+  if (!email) {
+    res.status(500).json('Missing customer email');
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      'https://us-central1-safedrop-83b20.cloudfunctions.net/generateLicense',
+      {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+          Generator: process.env.LICENSE_GEN_HEADER,
+        },
+        body: JSON.stringify({ key: process.env.LICENSE_GEN_KEY }),
+      },
+    );
+
+    const {
+      success,
+      license,
+    } = (await response.json()) as LicenseGeneratorResponse;
+
+    if (!success) {
+      res.status(500).json({
+        error: `Didn't receive valid license`,
+        email,
+      });
+      return;
+    }
+
+    res.status(200).json({
+      license: license.key,
+      email,
+    });
+  } catch (ex) {
+    res.status(500).json({
+      error: `License generator exception: ${ex.toString()}`,
+      email,
+    });
+  }
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

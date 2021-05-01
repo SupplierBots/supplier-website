@@ -4,5 +4,7 @@ declare namespace NodeJS {
     STRIPE_SECRET_KEY: string;
     STRIPE_PRICE_ID: string;
     STRIPE_WEBHOOK_SECRET: string;
+    LICENSE_GEN_KEY: string;
+    LICENSE_GEN_HEADER: string;
   }
 }
