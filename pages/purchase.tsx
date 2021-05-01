@@ -19,6 +19,7 @@ const Purchase: NextPage = () => {
         // Retry after 5 seconds.
         setTimeout(() => revalidate({ retryCount }), 2000);
       },
+      revalidateOnFocus: false,
     },
   );
 
