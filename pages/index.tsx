@@ -32,7 +32,6 @@ const Index: NextPage<Props> = ({ price }) => {
       </Head>
       <div>
         <h2>{price.product.name}</h2>
-        <img src={price.product.images[0]} alt="Product" />
         <p>Cost: ${((price.unit_amount as number) / 100).toFixed(2)}</p>
         <button onClick={initiateCheckout}>Purchase</button>
       </div>
