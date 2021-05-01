@@ -81,6 +81,10 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       },
     );
 
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
     const {
       success,
       license,
