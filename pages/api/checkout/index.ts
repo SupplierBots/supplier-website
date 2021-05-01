@@ -25,8 +25,8 @@ export default async (
         },
       ],
       allow_promotion_codes: true,
-      success_url: `${req.headers.origin}/purchase?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/purchase?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${req.headers.origin}/order/{CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin}/order/{CHECKOUT_SESSION_ID}`,
     };
 
     const session = await stripe.checkout.sessions.create(params);
