@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { CheckoutSessionResponse } from '../api/checkout/[id]';
+import { CheckoutSessionResponse } from './api/checkout/[id]';
 
 import Head from 'next/head';
 import useSWR from 'swr';
@@ -8,7 +8,6 @@ import { getJSON } from 'utils/fetcher';
 
 const Order: NextPage = () => {
   const router = useRouter();
-
   const { id } = router.query;
   const { data, error, isValidating } = useSWR<CheckoutSessionResponse, Error>(
     id ? `/api/checkout/${id}` : null,
