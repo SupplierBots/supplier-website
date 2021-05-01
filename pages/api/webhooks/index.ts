@@ -28,9 +28,6 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const buf = await buffer(req);
 
   const webhookSignature = req.headers['stripe-signature']!;
-  console.log(webhookSignature);
-  console.log(webhookSecret);
-
   let event: Stripe.Event;
 
   try {
@@ -47,10 +44,12 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (event.type === 'payment_intent.succeeded') {
     const paymentIntent = event.data.object as Stripe.PaymentIntent;
-    const { email } = (await stripe.customers.retrieve(
-      paymentIntent.customer as string,
-    )) as Stripe.Customer;
-    console.log(`Customer email: ${email}`);
+    if (paymentIntent.customer) {
+      const { email } = (await stripe.customers.retrieve(
+        paymentIntent.customer as string,
+      )) as Stripe.Customer;
+      console.log(`Customer email: ${email}`);
+    }
   }
 
   res.json({ received: true });
