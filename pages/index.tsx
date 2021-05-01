@@ -15,7 +15,7 @@ interface Props {
   price: Price;
 }
 
-const Home: NextPage<Props> = ({ price }) => {
+const Index: NextPage<Props> = ({ price }) => {
   const initiateCheckout = async () => {
     const response = await fetch('/api/checkout', { method: 'POST' });
     const { sessionId } = await response.json();
@@ -52,4 +52,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { price } };
 };
 
-export default Home;
+export default Index;
