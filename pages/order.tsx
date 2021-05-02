@@ -41,8 +41,12 @@ const Order: NextPage = () => {
       {isValidating && <p>Processing...</p>}
       {!isValidating && data && !error && (
         <>
-          <p>Success: {data.success.toString()}</p>
-          <p>Customer email: {data.customerEmail}</p>
+          <p>Sucessfuly processed your payment</p>
+          <p>
+            We will send a license key to {data.customerEmail} shortly. If you
+            don&apos;t receive it within 24 hours, please send us a message:
+            contact@supplierbots.io
+          </p>
         </>
       )}
     </div>
