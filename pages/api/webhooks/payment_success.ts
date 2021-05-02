@@ -104,8 +104,10 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const mail: sendgrid.MailDataRequired = {
       to: customerEmail,
       from: { name: 'Supplier', email: 'contact@supplierbots.io' },
-      subject: 'License Key',
-      html: `<p>Your license key:  <strong>${license.key}</strong></p>`,
+      templateId: 'd-bdc70fd18ebe4127a3c7044e3270508e',
+      dynamicTemplateData: {
+        license_key: license.key,
+      },
     };
 
     try {
