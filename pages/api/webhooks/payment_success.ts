@@ -103,27 +103,25 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const mail: sendgrid.MailDataRequired = {
       to: customerEmail,
-      from: 'license@supplierbots.io',
-      subject: 'Supplier License Key',
-      text: 'Your license key: ',
-      html: `<strong>${license}</strong>`,
+      from: { name: 'Supplier Bots', email: 'contact@supplierbots.io' },
+      subject: 'License Key',
+      html: `<p>Your license key:  <strong>${license.key}</strong></p>`,
     };
 
-    const [mailSenderResponse] = await sendgrid.send(mail);
+    try {
+      await sendgrid.send(mail);
 
-    if (mailSenderResponse.statusCode !== 200) {
-      res.status(500).json({
-        error: "Couldn't send an email with license key",
+      res.status(200).json({
         license: license.key,
         customerEmail,
       });
-      return;
+    } catch (ex) {
+      res.status(500).json({
+        error: `Couldn't send an email`,
+        license: license.key,
+        customerEmail,
+      });
     }
-
-    res.status(200).json({
-      license: license.key,
-      customerEmail,
-    });
   } catch (ex) {
     res.status(500).json({
       error: `Exception: ${ex.toString()}`,
