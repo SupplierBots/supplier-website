@@ -6,5 +6,6 @@ declare namespace NodeJS {
     STRIPE_WEBHOOK_SECRET: string;
     LICENSE_GEN_KEY: string;
     LICENSE_GEN_HEADER: string;
+    SENDGRID_SECRET_KEY: string;
   }
 }

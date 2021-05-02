@@ -2,10 +2,13 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { buffer } from 'micro';
 import Cors from 'micro-cors';
 import Stripe from 'stripe';
+import sendgrid from '@sendgrid/mail';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2020-08-27',
 });
+sendgrid.setApiKey(process.env.SENDGRID_SECRET_KEY);
+
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
 // Stripe requires the raw body to construct the event.
@@ -58,11 +61,11 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const { email } = (await stripe.customers.retrieve(
+  const { email: customerEmail } = (await stripe.customers.retrieve(
     paymentIntent.customer as string,
   )) as Stripe.Customer;
 
-  if (!email) {
+  if (!customerEmail) {
     res.status(500).json('Missing customer email');
     return;
   }
@@ -93,19 +96,38 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (!success) {
       res.status(500).json({
         error: `Didn't receive valid license`,
-        email,
+        customerEmail,
+      });
+      return;
+    }
+
+    const mail: sendgrid.MailDataRequired = {
+      to: customerEmail,
+      from: 'license@supplierbots.io',
+      subject: 'Supplier License Key',
+      text: 'Your license key: ',
+      html: `<strong>${license}</strong>`,
+    };
+
+    const [mailSenderResponse] = await sendgrid.send(mail);
+
+    if (mailSenderResponse.statusCode !== 200) {
+      res.status(500).json({
+        error: "Couldn't send an email with license key",
+        license: license.key,
+        customerEmail,
       });
       return;
     }
 
     res.status(200).json({
       license: license.key,
-      email,
+      customerEmail,
     });
   } catch (ex) {
     res.status(500).json({
-      error: `License generator exception: ${ex.toString()}`,
-      email,
+      error: `Exception: ${ex.toString()}`,
+      customerEmail,
     });
   }
 };
