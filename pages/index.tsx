@@ -7,12 +7,8 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
 );
 
-interface Price extends Stripe.Price {
-  product: Stripe.Product;
-}
-
 interface Props {
-  price: Price;
+  price: string;
 }
 
 const Index: NextPage<Props> = ({ price }) => {
@@ -31,8 +27,8 @@ const Index: NextPage<Props> = ({ price }) => {
         <link rel="Logo" href="/favicon.ico" />
       </Head>
       <div>
-        <h2>{price.product.name}</h2>
-        <p>Cost: ${((price.unit_amount as number) / 100).toFixed(2)}</p>
+        <h2>Supplier</h2>
+        <p>Cost: ${price}</p>
         <button onClick={initiateCheckout}>Purchase</button>
       </div>
     </div>
@@ -44,11 +40,14 @@ export const getStaticProps: GetStaticProps = async () => {
     apiVersion: '2020-08-27',
   });
 
-  const price = await stripe.prices.retrieve(process.env.STRIPE_PRICE_ID, {
-    expand: ['product'],
-  });
-
-  return { props: { price } };
+  const stripePrice = await stripe.prices.retrieve(
+    process.env.STRIPE_PRICE_ID,
+    {
+      expand: ['product'],
+    },
+  );
+  const priceAmount = (stripePrice.unit_amount! / 100).toFixed(2);
+  return { props: { price: priceAmount } };
 };
 
 export default Index;
