@@ -25,6 +25,10 @@ const Index: NextPage<Props> = ({ price }) => {
     <div>
       <Head>
         <link rel="Logo" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400&display=swap"
+        ></link>
       </Head>
       <div>
         <h2>Supplier</h2>
