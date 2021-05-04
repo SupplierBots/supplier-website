@@ -1,3 +1,4 @@
+import { colors } from 'constants/theme';
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import {
   createGlobalStyle,
@@ -13,10 +14,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    user-select: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-app-region: no-drag;
   }
 
   html {
@@ -26,8 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Lato", sans-serif;
-    overflow: hidden;
-    background: #1B191C;
+    background: ${colors.primaryBackground};
     color: #F1E3FF;
   }
 

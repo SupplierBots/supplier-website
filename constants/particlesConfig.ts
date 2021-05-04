@@ -2,10 +2,10 @@ import { IParticlesParams } from 'react-particles-js';
 const params: IParticlesParams = {
   particles: {
     number: {
-      value: 35,
+      value: 5,
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 200,
       },
     },
     color: {
@@ -50,7 +50,7 @@ const params: IParticlesParams = {
     },
     move: {
       enable: true,
-      speed: 0.8,
+      speed: 0.5,
       direction: 'none',
       random: false,
       straight: false,
@@ -67,14 +67,14 @@ const params: IParticlesParams = {
     detect_on: 'canvas',
     events: {
       onhover: {
-        enable: true,
+        enable: false,
         mode: 'repulse',
       },
       onclick: {
-        enable: true,
+        enable: false,
         mode: 'push',
       },
-      resize: true,
+      resize: false,
     },
     modes: {
       grab: {
@@ -101,7 +101,7 @@ const params: IParticlesParams = {
       },
     },
   },
-  retina_detect: true,
+  retina_detect: false,
 };
 
 export default params;
