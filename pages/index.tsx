@@ -11,23 +11,26 @@ import PrimaryButton from 'components/PrimaryButton';
 import { useRef } from 'react';
 import Stripe from 'stripe';
 import PurchaseButton from 'components/PurchaseButton';
+import { devices } from 'constants/mediaQueriesBreakpoints';
 
 export const StyledParticles = styled(Particles)`
   position: absolute;
   width: 100vw;
   height: 100vh;
+  max-width: 100%;
   pointer-events: none;
   z-index: -9999;
 `;
 
 const Name = styled.h2`
-  font-size: 8rem;
+  font-size: 11vw;
   color: ${colors.lightPurple};
   font-weight: 300;
+  margin-top: 2%;
 `;
 
 const Slogan = styled.h2`
-  font-size: 5rem;
+  font-size: 6.5vw;
   background: ${colors.mainGradientLR};
   -webkit-background-clip: text;
   background-clip: text;
@@ -45,62 +48,54 @@ const MainParagraphsContainer = styled.div`
 `;
 
 const HeroSection = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   animation: ${moveUpDown} 3s cubic-bezier(0.61, 1, 0.88, 1) infinite;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3vw;
 `;
 
 const LogoContainer = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin-bottom: 20rem;
-`;
-
-const MockupsContainer = styled.div`
-  flex: 1;
+  margin-top: 6vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  height: 100vh;
+  justify-content: center;
 `;
 
 const Screens = styled.img`
-  width: 800px;
-  height: auto;
-  position: absolute;
+  /* width: auto; */
+  max-height: 50vh;
+  object-fit: contain;
 `;
 
 const ActionButtonsContainer = styled.div`
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   display: flex;
-  margin-top: 2rem;
-
+  flex-direction: column;
+  align-items: center;
   button:first-child {
-    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
 const BottomPolygon = styled.div`
   position: absolute;
-  background: ${colors.secondaryBackground};
-  height: 15vh;
-  width: 100vw;
-  clip-path: polygon(0 0, 100% 80%, 100% 100%, 0 100%);
-  bottom: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 15vh solid ${colors.secondaryBackground};
+  border-right: 99vw solid transparent;
+  bottom: 5vh;
   z-index: -20;
 `;
 
-const TopPolygon = styled.div`
+const BottomPoly2 = styled.div`
   position: absolute;
-  background-image: ${colors.mainGradient45};
-  height: 6vh;
-  width: 50vw;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  top: 0;
-  right: 0;
+  width: 100%;
+  height: 5vh;
+  background: ${colors.secondaryBackground};
+  bottom: 0;
   z-index: -20;
 `;
 
@@ -109,6 +104,11 @@ const FeaturesSection = styled.div`
   height: 300rem;
 `;
 
+const Logo = styled.div`
+  /* flex: 1; */
+  width: 24vw;
+`;
+const MainContent = styled.div``;
 interface Props {
   price: string;
 }
@@ -131,24 +131,32 @@ const Index: NextPage<Props> = ({ price }) => {
       </Head>
       <StyledParticles params={params} />
       <HeroSection>
-        <LogoContainer>
-          <Image src="/static/supplier-logo.svg" height={140} width={140} />
-          <MainParagraphsContainer>
-            <Name>Supplier</Name>
-            <Slogan>Made to cop easily</Slogan>
-            <ActionButtonsContainer>
-              <PurchaseButton price={price} />
-              <SecondaryButton width="16rem" onClick={scrollToFeatures}>
-                See features
-              </SecondaryButton>
-            </ActionButtonsContainer>
-          </MainParagraphsContainer>
-        </LogoContainer>
-        <MockupsContainer>
-          <Screens src="/static/screens.png" alt="Screens" />
-        </MockupsContainer>
+        <MainContent>
+          <LogoContainer>
+            <Logo>
+              <Image
+                src="/static/supplier-logo.svg"
+                height="auto"
+                width="auto"
+                layout="responsive"
+              />
+            </Logo>
+            <MainParagraphsContainer>
+              <Name>Supplier</Name>
+              <Slogan>Made to cop easily</Slogan>
+            </MainParagraphsContainer>
+          </LogoContainer>
+          <ActionButtonsContainer>
+            <PurchaseButton price={price} />
+            <SecondaryButton width="16rem" onClick={scrollToFeatures}>
+              See features
+            </SecondaryButton>
+          </ActionButtonsContainer>
+        </MainContent>
+        <Screens src="/static/screens.png" alt="Screens" />
       </HeroSection>
       <BottomPolygon />
+      <BottomPoly2 />
       <FeaturesSection ref={featuresRef}></FeaturesSection>
     </>
   );
