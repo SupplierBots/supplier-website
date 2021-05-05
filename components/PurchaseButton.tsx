@@ -1,11 +1,21 @@
 import { loadStripe } from '@stripe/stripe-js';
+import { devices } from 'constants/mediaQueriesBreakpoints';
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import PrimaryButton from './PrimaryButton';
 import Spinner from './Spinner';
 
 interface Props {
   price: string;
 }
+
+const StyledButton = styled(PrimaryButton)`
+  @media ${devices.desktop} {
+    height: 2.6em;
+    width: 11.75em;
+    font-size: 0.9em;
+  }
+`;
 
 const PurchaseButton = ({ price }: Props): JSX.Element => {
   const [loadingCheckout, setLoadingCheckout] = useState(false);
@@ -25,9 +35,9 @@ const PurchaseButton = ({ price }: Props): JSX.Element => {
   };
 
   return (
-    <PrimaryButton onClick={initiateCheckout}>
+    <StyledButton onClick={initiateCheckout}>
       {loadingCheckout ? <Spinner /> : `Purchase for $${price}`}
-    </PrimaryButton>
+    </StyledButton>
   );
 };
 

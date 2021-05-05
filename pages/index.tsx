@@ -27,7 +27,9 @@ const Index: NextPage<Props> = ({ price }) => {
       </Head>
       <StyledParticles />
       <HeroSection productPrice={price} />
-      <FeaturesSection>START</FeaturesSection>
+      <FeaturesSection>
+        Wyślij SMS o treści PJATK na numer 2137 aby pobrać przecieki maturalne
+      </FeaturesSection>
     </>
   );
 };

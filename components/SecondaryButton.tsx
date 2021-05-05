@@ -2,17 +2,23 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { colors, shadows } from 'constants/theme';
 import { hasPointer } from 'constants/mediaQueriesBreakpoints';
+import { isFirefox } from 'react-device-detect';
 
 interface Props {
   children: ReactNode;
   width?: string;
+  height?: string;
+  fontSize?: string;
   onClick?: () => void;
 }
 
 const ButtonWrapper = styled.button<Props>`
   border-radius: 0.5rem;
   height: 4.5rem;
-  width: ${({ width }) => (width ? width : '20rem')};
+
+  height: ${({ height }) => (height ? height : '4.5rem')};
+  width: ${({ width }) => (width ? width : '19rem')};
+
   outline: none;
   box-shadow: ${shadows.primary};
   z-index: 1;
@@ -31,7 +37,7 @@ const ButtonWrapper = styled.button<Props>`
     ),
     ${colors.mainGradient45};
   background-origin: border-box;
-  border: double 1px transparent;
+  border: double ${isFirefox ? '0.07vw' : '1px'} transparent;
   background-clip: padding-box, border-box;
 
   ::before {
@@ -55,13 +61,19 @@ const ButtonWrapper = styled.button<Props>`
   }
 `;
 
-const ButtonContent = styled.p`
+const ButtonContent = styled.p<Props>`
   font-family: 'Lato';
-  font-size: 1.7rem;
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '1.7rem')};
+
   color: ${colors.primaryBackground};
   transition: 0.3s all;
   z-index: 10;
   text-align: center;
+
+  display: flex;
+  display: -webkit-inline-box;
+  align-items: center;
+  justify-content: center;
 
   color: transparent;
   background: ${colors.mainGradient45};
@@ -77,7 +89,7 @@ const ButtonContent = styled.p`
 
 const SecondaryButton = (props: Props): JSX.Element => (
   <ButtonWrapper {...props} type="button">
-    <ButtonContent>{props.children}</ButtonContent>
+    <ButtonContent {...props}>{props.children}</ButtonContent>
   </ButtonWrapper>
 );
 

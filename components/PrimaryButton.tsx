@@ -6,6 +6,8 @@ import { hasPointer } from 'constants/mediaQueriesBreakpoints';
 interface Props {
   children: ReactNode;
   width?: string;
+  height?: string;
+  fontSize?: string;
   onClick?: () => void;
 }
 
@@ -13,7 +15,8 @@ const ButtonWrapper = styled.button<Props>`
   background: ${colors.mainGradient45};
   border: none;
   border-radius: 0.5rem;
-  height: 4.5rem;
+
+  height: ${({ height }) => (height ? height : '4.5rem')};
   width: ${({ width }) => (width ? width : '19rem')};
 
   outline: none;
@@ -56,13 +59,16 @@ const ButtonWrapper = styled.button<Props>`
   }
 `;
 
-const ButtonContent = styled.p`
+const ButtonContent = styled.p<Props>`
   font-family: 'Lato', sans-serif;
-  font-size: 1.7rem;
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '1.7rem')};
+
   color: ${colors.primaryBackground};
   transition: 0.3s all;
   z-index: 10;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media ${hasPointer} {
     ${/* sc-selector */ ButtonWrapper}:hover & {
@@ -78,7 +84,7 @@ const ButtonContent = styled.p`
 
 const PrimaryButton = (props: Props): JSX.Element => (
   <ButtonWrapper {...props} type="button">
-    <ButtonContent>{props.children}</ButtonContent>
+    <ButtonContent {...props}>{props.children}</ButtonContent>
   </ButtonWrapper>
 );
 

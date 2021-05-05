@@ -5,7 +5,7 @@ export const moveUpDown = keyframes`
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-1vh);
+    transform: translateY(1vh);
   }
 `;
 
