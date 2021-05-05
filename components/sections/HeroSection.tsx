@@ -74,9 +74,12 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-const Screens = styled.img`
-  max-height: 42vh;
-  object-fit: contain;
+const Screens = styled.div`
+  position: relative;
+  height: 42vh;
+  img {
+    object-fit: contain;
+  }
 `;
 
 interface Props {
@@ -108,7 +111,15 @@ const HeroSection = ({ productPrice }: Props): JSX.Element => {
           <PurchaseButton price={productPrice} />
           <SecondaryButton width="16rem">See features</SecondaryButton>
         </ButtonsContainer>
-        <Screens src="/static/screens.png" alt="Screens" />
+        <Screens>
+          <Image
+            src="/static/screens.png"
+            alt="Screens"
+            layout="fill"
+            unoptimized
+            priority
+          />
+        </Screens>
       </Content>
     </Wrapper>
   );
