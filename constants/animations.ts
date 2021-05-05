@@ -17,3 +17,12 @@ export const rotate = keyframes`
     transform: rotate(360deg);
   }
 `;
+
+export const scaleUpDown = keyframes`
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.4);;
+  }
+`;

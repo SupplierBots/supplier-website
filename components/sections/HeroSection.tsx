@@ -5,6 +5,7 @@ import { moveUpDown } from 'constants/animations';
 import SecondaryButton from 'components/SecondaryButton';
 import PurchaseButton from 'components/PurchaseButton';
 import { devices } from 'constants/mediaQueriesBreakpoints';
+import StyledParticles from 'components/StyledParticles';
 
 const Wrapper = styled.section`
   background-image: url('static/background-transition-mobile.svg');
@@ -149,10 +150,6 @@ const SupportedDevices = styled.span`
   }
 `;
 
-interface Props {
-  productPrice: string;
-}
-
 const FeaturesButton = styled(SecondaryButton)`
   width: 16rem;
 
@@ -163,9 +160,14 @@ const FeaturesButton = styled(SecondaryButton)`
   }
 `;
 
+interface Props {
+  productPrice: string;
+}
+
 const HeroSection = ({ productPrice }: Props): JSX.Element => {
   return (
     <Wrapper>
+      <StyledParticles />
       <Content>
         <Details>
           <Branding>

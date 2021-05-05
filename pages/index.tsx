@@ -1,15 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import styled from 'styled-components';
-import { colors } from 'constants/theme';
 import Stripe from 'stripe';
-import StyledParticles from 'components/StyledParticles';
 import HeroSection from 'components/sections/HeroSection';
-
-const FeaturesSection = styled.div`
-  background: ${colors.secondaryBackground};
-  height: 300rem;
-`;
+import FeaturesSection from 'components/sections/FeaturesSection';
 
 interface Props {
   price: string;
@@ -25,11 +18,8 @@ const Index: NextPage<Props> = ({ price }) => {
           href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400&display=swap"
         ></link>
       </Head>
-      <StyledParticles />
       <HeroSection productPrice={price} />
-      <FeaturesSection>
-        Wyślij SMS o treści PJATK na numer 2137 aby pobrać przecieki maturalne
-      </FeaturesSection>
+      <FeaturesSection />
     </>
   );
 };
