@@ -90,7 +90,8 @@ const HeroSection = ({ productPrice }: Props): JSX.Element => {
         <BrandingContainer>
           <Logo>
             <Image
-              src="/static/supplier-logo.svg"
+              src="/static/supplier-logo.png"
+              alt="Supplier Logo"
               height="auto"
               width="auto"
               layout="responsive"
