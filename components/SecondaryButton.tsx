@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { colors, shadows } from 'constants/theme';
+import { hasPointer } from 'constants/mediaQueriesBreakpoints';
 
 interface Props {
   children: ReactNode;
@@ -47,9 +48,10 @@ const ButtonWrapper = styled.button<Props>`
     background: ${colors.mainGradient45};
     border-radius: 0;
   }
-
-  :hover::before {
-    opacity: 1;
+  @media ${hasPointer} {
+    :hover::before {
+      opacity: 1;
+    }
   }
 `;
 
@@ -66,8 +68,10 @@ const ButtonContent = styled.p`
   -webkit-background-clip: text;
   text-shadow: ${shadows.primary};
 
-  ${ButtonWrapper}:hover & {
-    color: ${colors.primaryBackground};
+  @media ${hasPointer} {
+    ${ButtonWrapper}:hover & {
+      color: ${colors.primaryBackground};
+    }
   }
 `;
 

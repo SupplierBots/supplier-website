@@ -1,13 +1,5 @@
 import { loadStripe } from '@stripe/stripe-js';
-import { colors } from 'constants/theme';
 import React, { useState } from 'react';
-import {
-  CircleSpinner,
-  GooSpinner,
-  MetroSpinner,
-  SphereSpinner,
-} from 'react-spinners-kit';
-import styled from 'styled-components';
 import PrimaryButton from './PrimaryButton';
 import Spinner from './Spinner';
 

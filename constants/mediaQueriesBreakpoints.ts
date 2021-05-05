@@ -5,3 +5,5 @@ export const devices = {
   desktopL: `(min-width: 1440px)`,
   desktopXL: `(min-width: 2560px)`,
 };
+
+export const hasPointer = '(hover: hover) and (pointer: fine)';

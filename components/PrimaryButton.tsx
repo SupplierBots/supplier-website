@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { colors, shadows } from 'constants/theme';
+import { hasPointer } from 'constants/mediaQueriesBreakpoints';
 
 interface Props {
   children: ReactNode;
@@ -48,8 +49,10 @@ const ButtonWrapper = styled.button<Props>`
     border-radius: 0.5rem;
   }
 
-  :hover::before {
-    opacity: 1;
+  @media ${hasPointer} {
+    :hover::before {
+      opacity: 1;
+    }
   }
 `;
 
@@ -61,13 +64,15 @@ const ButtonContent = styled.p`
   z-index: 10;
   text-align: center;
 
-  ${/* sc-selector */ ButtonWrapper}:hover & {
-    color: transparent;
-    background: ${colors.mainGradient45};
-    /* stylelint-disable-next-line */ /* prefix is necessary: background-clip doesn't work in Chromium */
-    -webkit-background-clip: text;
-    background-clip: text;
-    text-shadow: ${shadows.primary};
+  @media ${hasPointer} {
+    ${/* sc-selector */ ButtonWrapper}:hover & {
+      color: transparent;
+      background: ${colors.mainGradient45};
+      /* stylelint-disable-next-line */ /* prefix is necessary: background-clip doesn't work in Chromium */
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: ${shadows.primary};
+    }
   }
 `;
 

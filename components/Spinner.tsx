@@ -1,3 +1,4 @@
+import { hasPointer } from 'constants/mediaQueriesBreakpoints';
 import { colors } from 'constants/theme';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
@@ -55,8 +56,14 @@ const Dot = styled.div`
     animation: ${dotBeforeAnim} 2s infinite ease-in-out both;
   }
 
-  ${/* sc-selector */ Wrapper}:hover &:before {
-    background-color: ${colors.pink};
+  @media ${hasPointer} {
+    ${/* sc-selector */ Wrapper}:hover &:before {
+      background-color: ${colors.pink};
+    }
+
+    ${/* sc-selector */ Wrapper}:active &:before {
+      background-color: ${colors.pink};
+    }
   }
 
   :nth-child(1) {
