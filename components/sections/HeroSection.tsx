@@ -44,6 +44,10 @@ const Content = styled.div`
 const Logo = styled.div`
   width: 20vw;
 
+  @media ${devices.tablet} {
+    width: min(20vw, 11.4rem);
+  }
+
   @media ${devices.desktop} {
     width: 7.5em;
   }
@@ -63,6 +67,10 @@ const Name = styled.h1`
   color: ${colors.lightPurple};
   font-weight: 300;
 
+  @media ${devices.tablet} {
+    font-size: min(11vw, 6.3rem);
+  }
+
   @media ${devices.desktop} {
     font-size: 4em;
     margin-top: 0;
@@ -76,6 +84,10 @@ const Slogan = styled.h2`
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 300;
+
+  @media ${devices.tablet} {
+    font-size: min(6.5vw, 3.75rem);
+  }
 
   @media ${devices.desktop} {
     font-size: 2.5em;

@@ -1,3 +1,4 @@
+import { devices } from 'constants/mediaQueriesBreakpoints';
 import { colors } from 'constants/theme';
 import Image from 'next/image';
 import styled from 'styled-components';
@@ -5,29 +6,62 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   /* border-radius: 1rem; */
   background: ${colors.tertiaryBackground};
-  font-size: 2.25rem;
   font-weight: 300;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  border-radius: 1rem;
+  border-radius: 1em;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   transition: 0.3s all;
+  margin-bottom: 2rem;
+
+  @media ${devices.tablet} {
+    margin-bottom: 0;
+    width: calc(50% - 1.25rem);
+  }
+
+  @media ${devices.desktop} {
+    width: auto;
+  }
 `;
 
 const Description = styled.p`
   font-size: 1.5rem;
   color: ${colors.lightGrey};
   font-weight: 300;
+
+  @media ${devices.desktop} {
+    font-size: 0.85em;
+  }
 `;
 
 const Title = styled.p`
   margin: 0.5rem 0 1rem 0;
+  font-size: 2.1rem;
+
+  @media ${devices.desktop} {
+    margin: 0.08em 0 0.4em 0;
+    font-size: 1.15em;
+  }
 `;
 
 const Content = styled.div`
-  padding: 3rem 4rem 6rem 4rem;
+  padding: 4rem 4rem 5.5rem 4rem;
+
+  @media ${devices.desktop} {
+    padding: 2.1em 2.1em 2.9em 2.1em;
+  }
+`;
+
+const Icon = styled.div`
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  @media ${devices.desktop} {
+    width: 2.6em;
+    height: 2.6em;
+  }
 `;
 
 interface Props {
@@ -39,7 +73,13 @@ const FeatureCard = ({ iconName, title, description }: Props): JSX.Element => {
   return (
     <Wrapper>
       <Content>
-        <Image src={`/static/${iconName}.svg`} width="50" height="50" />
+        <Icon>
+          <Image
+            src={`/static/${iconName}.svg`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </Icon>
         <Title>{title}</Title>
         <Description>{description}</Description>
       </Content>
