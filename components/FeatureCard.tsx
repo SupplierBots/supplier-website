@@ -4,7 +4,6 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  /* border-radius: 1rem; */
   background: ${colors.tertiaryBackground};
   font-weight: 300;
   display: flex;
@@ -12,9 +11,13 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   border-radius: 1em;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   transition: 0.3s all;
   margin-bottom: 2rem;
+
+  background-image: url('static/card-pattern.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 100% auto;
 
   @media ${devices.tablet} {
     margin-bottom: 0;
@@ -29,7 +32,6 @@ const Wrapper = styled.div`
 const Description = styled.p`
   font-size: 1.5rem;
   color: ${colors.lightGrey};
-  font-weight: 300;
 
   @media ${devices.desktop} {
     font-size: 0.85em;
@@ -47,7 +49,11 @@ const Title = styled.p`
 `;
 
 const Content = styled.div`
-  padding: 4rem 4rem 5.5rem 4rem;
+  padding: 4rem 8vw 5.5rem 8vw;
+
+  @media ${devices.tablet} {
+    padding: 4rem 4rem 5.5rem 4rem;
+  }
 
   @media ${devices.desktop} {
     padding: 2.1em 2.1em 2.9em 2.1em;

@@ -6,8 +6,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
   background: ${colors.secondaryBackground};
-  padding-bottom: 20rem;
   padding-top: 5rem;
+  padding-bottom: 1px;
 
   @media ${devices.tablet} {
     padding-top: 2rem;
@@ -52,12 +52,12 @@ const FeaturesSection = (): JSX.Element => {
         />
         <FeatureCard
           iconName="devices-icon"
-          title="Nice bot"
+          title="Very nice bot"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde et sunt animi ex iusto odio exercitationem id atque officiis. Voluptatem amet neque aliquam deleniti, dignissimos, tempore doloribus quibusdam perferendis facere accusantium eaque temporibus ex placeat"
         />
         <FeatureCard
           iconName="devices-icon"
-          title="The best bot"
+          title="Dobre jak u mamy"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde et sunt animi ex iusto odio exercitationem id atque officiis. Voluptatem amet neque aliquam deleniti, dignissimos, tempore doloribus quibusdam perferendis facere accusantium eaque temporibus ex placeat"
         />
       </FeaturesList>

@@ -24,10 +24,10 @@ const Separator = styled.div`
   height: 2px;
   margin: 0 auto;
   background: ${colors.lightPurple};
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.75rem;
 
   @media ${devices.desktop} {
-    margin-bottom: 2.3em;
+    margin-bottom: 1.75em;
   }
 `;
 

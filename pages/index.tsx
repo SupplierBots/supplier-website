@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Stripe from 'stripe';
 import HeroSection from 'components/sections/HeroSection';
 import FeaturesSection from 'components/sections/FeaturesSection';
+import FaqSection from 'components/sections/FaqSection';
 
 interface Props {
   price: string;
@@ -20,6 +21,8 @@ const Index: NextPage<Props> = ({ price }) => {
       </Head>
       <HeroSection productPrice={price} />
       <FeaturesSection />
+      <FaqSection />
+      przecieki maturalne tanio
     </>
   );
 };

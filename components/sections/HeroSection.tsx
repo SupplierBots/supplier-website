@@ -8,13 +8,13 @@ import { devices } from 'constants/mediaQueriesBreakpoints';
 import StyledParticles from 'components/StyledParticles';
 
 const Wrapper = styled.section`
-  background-image: url('static/background-transition-mobile.svg');
+  background-image: url('static/hero-transition-mobile.svg');
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 100% auto;
 
   @media ${devices.desktop} {
-    background-image: url('static/background-transition-desktop.svg');
+    background-image: url('static/hero-transition-desktop.svg');
   }
 `;
 
