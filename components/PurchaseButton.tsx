@@ -1,4 +1,4 @@
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js/pure';
 import { devices } from 'constants/mediaQueriesBreakpoints';
 import React, { useState } from 'react';
 import styled from 'styled-components';

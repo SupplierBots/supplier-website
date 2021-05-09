@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
   background: ${colors.secondaryBackground};
-  padding-bottom: 20rem;
   padding-top: 3rem;
   font-weight: 300;
 
@@ -147,7 +146,3 @@ const FaqSection = (): JSX.Element => {
 };
 
 export default FaqSection;
-
-/**
- responsive width mobile
-*/

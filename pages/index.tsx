@@ -4,6 +4,8 @@ import Stripe from 'stripe';
 import HeroSection from 'components/sections/HeroSection';
 import FeaturesSection from 'components/sections/FeaturesSection';
 import FaqSection from 'components/sections/FaqSection';
+import ContactSection from 'components/sections/ContactSection';
+import Footer from 'components/sections/Footer';
 
 interface Props {
   price: string;
@@ -13,7 +15,7 @@ const Index: NextPage<Props> = ({ price }) => {
   return (
     <>
       <Head>
-        <link rel="Logo" href="/favicon.ico" />
+        <link rel="shortcut icon" href="favicon.ico" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400&display=swap"
@@ -22,7 +24,8 @@ const Index: NextPage<Props> = ({ price }) => {
       <HeroSection productPrice={price} />
       <FeaturesSection />
       <FaqSection />
-      przecieki maturalne tanio
+      <ContactSection />
+      <Footer />
     </>
   );
 };
