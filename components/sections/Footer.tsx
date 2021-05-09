@@ -3,7 +3,7 @@ import { colors } from 'constants/theme';
 import styled from 'styled-components';
 
 const Wrapper = styled.footer`
-  padding: 4rem 0;
+  padding: 3rem 0;
 
   @media ${devices.desktop} {
     padding: 4rem 0 3.5rem 0;
@@ -30,7 +30,6 @@ const Content = styled.div`
 const Link = styled.a`
   cursor: pointer;
   color: ${colors.lightGrey};
-
   font-size: 1.5rem;
 
   @media ${devices.desktop} {
@@ -39,17 +38,15 @@ const Link = styled.a`
   }
 
   :not(:last-of-type) {
-    margin-bottom: 0.2rem;
-
+    margin-right: 1rem;
     @media ${devices.desktop} {
-      margin-bottom: 0;
       margin-right: 2rem;
     }
   }
 `;
 
 const Copyright = styled.p`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   font-size: 1.5rem;
   @media ${devices.desktop} {
     font-size: 0.75em;
@@ -58,12 +55,18 @@ const Copyright = styled.p`
   }
 `;
 
+const LinksContainer = styled.div`
+  display: flex;
+`;
+
 const Footer = (): JSX.Element => {
   return (
     <Wrapper>
       <Content>
-        <Link>Terms of service</Link>
-        <Link>Privacy policy</Link>
+        <LinksContainer>
+          <Link>Terms of service</Link>
+          <Link>Privacy policy</Link>
+        </LinksContainer>
         <Copyright>Copyright © 2021 Supplier</Copyright>
       </Content>
     </Wrapper>
