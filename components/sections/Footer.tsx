@@ -4,10 +4,12 @@ import styled from 'styled-components';
 
 const Wrapper = styled.footer`
   padding: 3rem 0;
+  background-color: ${colors.primaryBackground};
+  width: 100%;
 
   @media ${devices.desktop} {
-    padding: 4rem 0 3.5rem 0;
     font-size: clamp(14px, 1vw, 19.2px);
+    padding: 2.25em 0 2em 0;
   }
 `;
 
