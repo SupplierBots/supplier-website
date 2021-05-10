@@ -3,7 +3,6 @@ import { devices } from 'constants/mediaQueriesBreakpoints';
 import { colors } from 'constants/theme';
 import Image from 'next/image';
 import styled from 'styled-components';
-import TwitterIcon from '../../public/static/twitter-icon.svg';
 
 const Wrapper = styled.section`
   background: ${colors.secondaryBackground};
@@ -158,7 +157,7 @@ const ContactSection = (): JSX.Element => {
               objectFit="cover"
             />
           </EmailIcon>
-          <EmailAddress href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=contact@supplierbots.io">
+          <EmailAddress href="mailto:contact@supplierbots.io">
             contact@supplierbots.io
           </EmailAddress>
         </EmailContainer>

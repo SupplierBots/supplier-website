@@ -80,6 +80,14 @@ const QuestionMark = styled.span`
   }
 `;
 
+const ExternalLink = styled.a`
+  transition: 0.3s all;
+  color: ${colors.lightPurple};
+  :hover {
+    color: ${colors.pink};
+  }
+`;
+
 const FaqSection = (): JSX.Element => {
   return (
     <Wrapper>
@@ -106,7 +114,10 @@ const FaqSection = (): JSX.Element => {
         </Question>
         <Answer>
           Detailed tutorials, links to download and more information are
-          available here: https://docs.supplierbot.io/
+          available here:{' '}
+          <ExternalLink href="https://docs.supplierbot.io/">
+            https://docs.supplierbot.io/
+          </ExternalLink>
         </Answer>
         <Question>
           Do you have Discord server<QuestionMark>?</QuestionMark>
