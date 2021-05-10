@@ -30,11 +30,11 @@ const Wrapper = styled.div`
 `;
 
 const Description = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: ${colors.lightGrey};
 
   @media ${devices.desktop} {
-    font-size: 0.85em;
+    font-size: 0.925em;
   }
 `;
 

@@ -68,6 +68,7 @@ const Footer = (): JSX.Element => {
         <LinksContainer>
           <Link>Terms of service</Link>
           <Link>Privacy policy</Link>
+          <Link>Cookie policy</Link>
         </LinksContainer>
         <Copyright>Copyright © 2021 Supplier</Copyright>
       </Content>

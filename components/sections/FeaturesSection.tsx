@@ -46,19 +46,19 @@ const FeaturesSection = (): JSX.Element => {
       <SectionHeader>Features</SectionHeader>
       <FeaturesList>
         <FeatureCard
-          iconName="devices-icon"
-          title="Good bot"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde et sunt animi ex iusto odio exercitationem id atque officiis. Voluptatem amet neque aliquam deleniti, dignissimos, tempore doloribus quibusdam perferendis facere accusantium eaque temporibus ex placeat"
+          iconName="lifetime-icon"
+          title="Lifetime license"
+          description="No recurring fees. No hidden costs. Pay once and get all incoming updates and improvements for free. Spend money on items, not renewals."
         />
         <FeatureCard
           iconName="devices-icon"
-          title="Very nice bot"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde et sunt animi ex iusto odio exercitationem id atque officiis. Voluptatem amet neque aliquam deleniti, dignissimos, tempore doloribus quibusdam perferendis facere accusantium eaque temporibus ex placeat"
+          title="Run on multiple devices"
+          description="Don't limit yourself to only one device. Supplier is multi-platform software, which allows you to run four instances simultaneously - two desktop and two mobile."
         />
         <FeatureCard
-          iconName="devices-icon"
-          title="Dobre jak u mamy"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde et sunt animi ex iusto odio exercitationem id atque officiis. Voluptatem amet neque aliquam deleniti, dignissimos, tempore doloribus quibusdam perferendis facere accusantium eaque temporibus ex placeat"
+          iconName="widgets-icon"
+          title="User-friendly UI"
+          description="Keywords or complicated setup is not a problem anymore. With our beautiful, polished and thoughful user interface configuration is a matter of seconds."
         />
       </FeaturesList>
     </Wrapper>

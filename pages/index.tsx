@@ -20,6 +20,7 @@ const Index: NextPage<Props> = ({ price }) => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400&display=swap"
         ></link>
+        <title>Supplier - Made to cop easily</title>
       </Head>
       <HeroSection productPrice={price} />
       <FeaturesSection />

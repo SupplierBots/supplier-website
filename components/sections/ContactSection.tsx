@@ -3,6 +3,7 @@ import { devices } from 'constants/mediaQueriesBreakpoints';
 import { colors } from 'constants/theme';
 import Image from 'next/image';
 import styled from 'styled-components';
+import TwitterIcon from '../../public/static/twitter-icon.svg';
 
 const Wrapper = styled.section`
   background: ${colors.secondaryBackground};
@@ -107,6 +108,12 @@ const SocialIcon = styled.a`
   @media ${devices.desktop} {
     width: 2.1em;
     height: 2.1em;
+  }
+
+  transition: all 0.3s;
+
+  :hover {
+    transform: scale(1.15);
   }
 `;
 

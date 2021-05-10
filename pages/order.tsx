@@ -166,6 +166,7 @@ const Order: NextPage = () => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400&display=swap"
         ></link>
+        <title>Supplier - Order status</title>
       </Head>
       <Wrapper>
         <LogoContainer>

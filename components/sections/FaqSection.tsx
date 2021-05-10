@@ -56,12 +56,12 @@ const Question = styled.div`
 `;
 
 const Answer = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: ${colors.lightGrey};
   margin-bottom: 2rem;
 
   @media ${devices.desktop} {
-    font-size: 0.85em;
+    font-size: 0.925em;
     margin-bottom: 1.75em;
   }
 `;
@@ -86,59 +86,49 @@ const FaqSection = (): JSX.Element => {
       <SectionHeader>FAQ</SectionHeader>
       <Card>
         <Question>
-          Jak było w szkole<QuestionMark>?</QuestionMark>
+          Which sites do we support<QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla
-          sequi aliquam maxime quia aperiam corrupti animi nostrum eaque nisi.
-          Tempore doloribus quibusdam perferendis facere accusantium eaque
-          temporibus ex placeat.
+          Currently our bot works on EU & US Supreme stores, we will add JPN one
+          in the near future.
         </Answer>
         <Question>
-          Co na obiad<QuestionMark>?</QuestionMark>
-        </Question>
-        <Answer>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla
-          sequi aliquam maxime quia aperiam corrupti animi nostrum eaque nisi.
-          Tempore doloribus quibusdam perferendis facere accusantium eaque
-          temporibus ex placeat.
-        </Answer>
-        <Question>
-          Działa na Nokii 3310<QuestionMark>?</QuestionMark>
-        </Question>
-        <Answer>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla
-          sequi aliquam maxime quia aperiam corrupti animi nostrum eaque nisi.
-          Tempore doloribus quibusdam perferendis facere accusantium eaque
-          temporibus ex placeat.
-        </Answer>
-        <Question>
-          Może potwórzymy angielski<QuestionMark>?</QuestionMark>
-        </Question>
-        <Answer>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla
-          sequi aliquam maxime quia aperiam corrupti animi nostrum eaque nisi.
-          Tempore doloribus quibusdam perferendis facere accusantium eaque
-          temporibus ex placeat.
-        </Answer>
-        <Question>
-          Srasz<QuestionMark>?</QuestionMark>
-        </Question>
-        <Answer>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla
-          sequi aliquam maxime quia aperiam corrupti animi nostrum eaque nisi.
-          Tempore doloribus quibusdam perferendis facere accusantium eaque
-          temporibus ex placeat.
-        </Answer>
-        <Question>
-          Mogę zapłacić PaySafeCardem lub karmą dla chomików
+          Which operating systems is our bot compatible with
           <QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla
-          sequi aliquam maxime quia aperiam corrupti animi nostrum eaque nisi.
-          Tempore doloribus quibusdam perferendis facere accusantium eaque
-          temporibus ex placeat.
+          Destkop version works on Windows & MacOS devices. Mobile one runs on
+          all iOS 11+ devices.
+        </Answer>
+        <Question>
+          Where can I download the bot and find out how to configure it
+          <QuestionMark>?</QuestionMark>
+        </Question>
+        <Answer>
+          Detailed tutorials, links to download and more information are
+          available here: https://docs.supplierbot.io/
+        </Answer>
+        <Question>
+          Do you have Discord server<QuestionMark>?</QuestionMark>
+        </Question>
+        <Answer>
+          Not yet, but we are going to launch it soon. Follow our social media
+          to be up to date.
+        </Answer>
+        <Question>
+          Do I have to pay for desktop and mobile version separately
+          <QuestionMark>?</QuestionMark>
+        </Question>
+        <Answer>
+          No, price includes access to both versions without any additional
+          cost.
+        </Answer>
+        <Question>
+          Do you have any affiliate program<QuestionMark>?</QuestionMark>
+        </Question>
+        <Answer>
+          Yes, if you are interested in cooperation and have wide audience
+          contact us for more details.
         </Answer>
       </Card>
     </Wrapper>
