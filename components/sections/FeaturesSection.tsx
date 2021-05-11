@@ -53,7 +53,7 @@ const FeaturesSection = (): JSX.Element => {
         <FeatureCard
           iconName="devices-icon"
           title="Run on multiple devices"
-          description="Don't limit yourself to only one device. Supplier is multi-platform software, which allows you to run four instances simultaneously - two desktop and two mobile."
+          description="Don't limit yourself to only one device. Supplier is a multi-platform software, which allows you to run four instances simultaneously - two desktop and two mobile."
         />
         <FeatureCard
           iconName="widgets-icon"

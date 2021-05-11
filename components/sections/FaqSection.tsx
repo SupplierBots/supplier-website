@@ -105,7 +105,7 @@ const FaqSection = (): JSX.Element => {
           <QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
-          Destkop version works on Windows & MacOS devices. Mobile one runs on
+          Desktop version works on Windows & MacOS devices. Mobile one runs on
           all iOS 11+ devices.
         </Answer>
         <Question>
