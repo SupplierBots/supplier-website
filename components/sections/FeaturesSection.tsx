@@ -53,12 +53,12 @@ const FeaturesSection = ({ scrollRef }: Props): JSX.Element => {
         <FeatureCard
           iconName="lifetime-icon"
           title="Lifetime license"
-          description="No recurring fees. No hidden costs. Pay once and get all incoming updates and improvements for free. Spend money on items, not renewals."
+          description="No recurring fees. No hidden costs. Pay once and get all future updates, improvements and new features for free. Spend money on items, not renewals."
         />
         <FeatureCard
           iconName="devices-icon"
           title="Run on multiple devices"
-          description="Don't limit yourself to only one device. Supplier is a multi-platform software, which allows you to run four instances simultaneously - two desktop and two mobile."
+          description="Don't limit yourself to just one device. Supplier is a multi-platform software, which allows you to run four instances simultaneously - two desktop and two mobile."
         />
         <FeatureCard
           iconName="widgets-icon"

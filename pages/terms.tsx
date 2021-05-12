@@ -43,6 +43,14 @@ const Terms: NextPage = () => {
             immediately from the date of publication. These Terms of Service
             were last updated on 11 May 2021.
           </InfoExplanation>
+          <InfoHeading>General</InfoHeading>
+          <InfoExplanation>
+            Our product increases your chances but doesn’t guarantee purchasing
+            products on the Supreme New York website. Reverse engineering and
+            distribution of our product without permission is forbidden and will
+            consequent instant termination of your licence key without any
+            refund and might result in legal action.
+          </InfoExplanation>
           <InfoHeading>Limitations of Use</InfoHeading>
           <InfoExplanation>
             By using this website, you warrant on behalf of yourself, your
@@ -144,6 +152,15 @@ const Terms: NextPage = () => {
             These Terms of Service are governed by and construed in accordance
             with the laws of Poland. You irrevocably submit to the exclusive
             jurisdiction of the courts in that location.
+          </InfoExplanation>
+          <InfoHeading>Refund policy</InfoHeading>
+          <InfoExplanation>
+            Since our Website offers non-tangible, irrevocable goods we do not
+            provide refunds after the product is purchased, which you
+            acknowledge prior to purchasing any product on the Website. Please
+            make sure that you&apos;ve carefully read product description before
+            making a purchase. We suggest contacting us in case of any
+            encountered issue with our product: contact@supplierbots.io
           </InfoExplanation>
         </InfoCard>
       </InfoWrapper>

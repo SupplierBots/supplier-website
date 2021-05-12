@@ -94,11 +94,11 @@ const FaqSection = (): JSX.Element => {
       <SectionHeader>FAQ</SectionHeader>
       <Card>
         <Question>
-          Which sites do we support<QuestionMark>?</QuestionMark>
+          Which sites we support<QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
-          Currently our bot works on EU & US Supreme stores, we will add JPN one
-          in the near future.
+          Currently our bot works on EU & US Supreme stores, we will add JPN in
+          the near future.
         </Answer>
         <Question>
           Which operating systems is our bot compatible with
@@ -115,8 +115,8 @@ const FaqSection = (): JSX.Element => {
         <Answer>
           Detailed tutorials, links to download and more information are
           available here:{' '}
-          <ExternalLink href="https://docs.supplierbot.io/">
-            https://docs.supplierbot.io/
+          <ExternalLink href="https://docs.supplierbots.io/" target="_blank">
+            https://docs.supplierbots.io/
           </ExternalLink>
         </Answer>
         <Question>
