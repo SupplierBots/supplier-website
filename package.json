@@ -32,6 +32,7 @@
     "react-dom": "17.0.2",
     "react-is": "^17.0.2",
     "react-tsparticles": "^1.26.4",
+    "smoothscroll-polyfill": "^0.4.4",
     "stripe": "^8.145.0",
     "styled-components": "^5.2.3",
     "swr": "^0.5.4"
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@types/micro-cors": "^0.1.1",
     "@types/react": "^17.0.4",
+    "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",

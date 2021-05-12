@@ -2,6 +2,7 @@ import FeatureCard from 'components/FeatureCard';
 import SectionHeader from 'components/SectionHeader';
 import { devices } from 'constants/mediaQueriesBreakpoints';
 import { colors } from 'constants/theme';
+import { RefObject } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -40,9 +41,13 @@ const FeaturesList = styled.div`
   }
 `;
 
-const FeaturesSection = (): JSX.Element => {
+interface Props {
+  scrollRef: RefObject<HTMLInputElement>;
+}
+
+const FeaturesSection = ({ scrollRef }: Props): JSX.Element => {
   return (
-    <Wrapper>
+    <Wrapper ref={scrollRef}>
       <SectionHeader>Features</SectionHeader>
       <FeaturesList>
         <FeatureCard

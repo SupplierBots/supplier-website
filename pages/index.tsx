@@ -6,12 +6,22 @@ import FeaturesSection from 'components/sections/FeaturesSection';
 import FaqSection from 'components/sections/FaqSection';
 import ContactSection from 'components/sections/ContactSection';
 import Footer from 'components/sections/Footer';
+import smoothscroll from 'smoothscroll-polyfill';
+import { useEffect, useRef } from 'react';
 
 interface Props {
   price: string;
 }
 
 const Index: NextPage<Props> = ({ price }) => {
+  const featuresRef = useRef<HTMLInputElement>(null);
+  const scrollToFeatures = () =>
+    featuresRef.current?.scrollIntoView({ behavior: 'smooth' });
+
+  useEffect(() => {
+    smoothscroll.polyfill();
+  }, []);
+
   return (
     <>
       <Head>
@@ -22,8 +32,11 @@ const Index: NextPage<Props> = ({ price }) => {
         ></link>
         <title>Supplier - Made to cop easily</title>
       </Head>
-      <HeroSection productPrice={price} />
-      <FeaturesSection />
+      <HeroSection
+        productPrice={price}
+        featuresScrollCallback={scrollToFeatures}
+      />
+      <FeaturesSection scrollRef={featuresRef} />
       <FaqSection />
       <ContactSection />
       <Footer />

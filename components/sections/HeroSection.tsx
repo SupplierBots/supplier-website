@@ -113,9 +113,13 @@ const FeaturesButton = styled(SecondaryButton)`
 
 interface Props {
   productPrice: string;
+  featuresScrollCallback: () => void;
 }
 
-const HeroSection = ({ productPrice }: Props): JSX.Element => {
+const HeroSection = ({
+  productPrice,
+  featuresScrollCallback,
+}: Props): JSX.Element => {
   return (
     <Wrapper>
       <StyledParticles />
@@ -124,7 +128,9 @@ const HeroSection = ({ productPrice }: Props): JSX.Element => {
           <MainLogo />
           <ButtonsContainer>
             <PurchaseButton price={productPrice} />
-            <FeaturesButton>See features</FeaturesButton>
+            <FeaturesButton onClick={featuresScrollCallback}>
+              See features
+            </FeaturesButton>
           </ButtonsContainer>
         </Details>
         <Screens>
