@@ -10,7 +10,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 sendgrid.setApiKey(process.env.SENDGRID_SECRET_KEY);
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-const generateLicenses = process.env.GENERATE_LICENSES === 'true';
+
+const licenseType =
+  process.env.GENERATE_LICENSES === 'true'
+    ? 'production-license'
+    : 'debug-license';
 
 // Stripe requires the raw body to construct the event.
 export const config = {
@@ -83,7 +87,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         },
         body: JSON.stringify({
           key: process.env.LICENSE_GEN_KEY,
-          generate: generateLicenses,
+          licenseType,
         }),
       },
     );
