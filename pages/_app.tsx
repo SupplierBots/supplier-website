@@ -1,10 +1,14 @@
 import { colors } from 'constants/theme';
 import { AppProps } from 'next/dist/next-server/lib/router/router';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import {
   createGlobalStyle,
   DefaultTheme,
   ThemeProvider,
 } from 'styled-components';
+import * as gtag from '../lib/gtag';
+const isProduction = process.env.NODE_ENV === 'production';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -63,6 +67,21 @@ export const theme: DefaultTheme = {
 };
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      /* invoke analytics function only for production */
+      if (isProduction) {
+        gtag.pageview(url);
+      }
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <GlobalStyle />
