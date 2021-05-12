@@ -8,5 +8,6 @@ declare namespace NodeJS {
     LICENSE_GEN_HEADER: string;
     SENDGRID_SECRET_KEY: string;
     GA_TRACKING_ID: string;
+    GENERATE_LICENSES: string;
   }
 }

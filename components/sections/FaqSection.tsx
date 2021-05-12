@@ -120,14 +120,14 @@ const FaqSection = (): JSX.Element => {
           </ExternalLink>
         </Answer>
         <Question>
-          Do you have Discord server<QuestionMark>?</QuestionMark>
+          Do you have a Discord server<QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
           Not yet, but we are going to launch it soon. Follow our social media
           to be up to date.
         </Answer>
         <Question>
-          Do I have to pay for desktop and mobile version separately
+          Do I have to pay for a desktop and mobile version separately
           <QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
@@ -138,7 +138,7 @@ const FaqSection = (): JSX.Element => {
           Do you have any affiliate program<QuestionMark>?</QuestionMark>
         </Question>
         <Answer>
-          Yes, if you are interested in cooperation and have wide audience
+          Yes, if you are interested in a cooperation and have a wide audience
           contact us for more details.
         </Answer>
       </Card>
