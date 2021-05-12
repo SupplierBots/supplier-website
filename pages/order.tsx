@@ -207,7 +207,7 @@ const Order: NextPage = () => {
         {!isValidating && data && !error && (
           <Card>
             <Status>
-              Thanks for purchase
+              Thanks for a purchase
               <StatusIcon>
                 <Image
                   src={`/static/success-icon.svg`}
